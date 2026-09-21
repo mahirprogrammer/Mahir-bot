@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahir Bot Pair</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family: 'Segoe UI', sans-serif;}
+body{background:#0a0a0a;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px;}
+.card{background:#141414;border:1px solid #222;width:100%;max-width:380px;border-radius:20px;padding:30px 25px;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,0.5);}
+.logo{width:90px;height:90px;background:linear-gradient(135deg,#00ff88,#00c6ff);border-radius:50%;display:flex;justify-content:center;align-items:center;margin:0 auto 15px;font-size:38px;font-weight:900;color:#000;letter-spacing:-2px;box-shadow:0 0 20px rgba(0,255,136,0.4);}
+.logo span{color:#fff;text-shadow:0 2px 5px rgba(0,0,0,0.3);}
+.title{color:#fff;font-size:22px;font-weight:700;letter-spacing:1px;margin-bottom:5px;}
+.subtitle{color:#888;font-size:13px;margin-bottom:25px;letter-spacing:2px;text-transform:uppercase;}
+.input-box{width:100%;background:#1e1e1e;border:1px solid #333;color:#fff;padding:15px;border-radius:12px;font-size:16px;outline:none;text-align:center;margin-bottom:15px;}
+.input-box:focus{border-color:#00ff88;}
+.btn{width:100%;background:#00ff88;color:#000;border:none;padding:15px;border-radius:12px;font-size:16px;font-weight:800;cursor:pointer;transition:0.2s;}
+.btn:active{transform:scale(0.97);}
+.result-box{margin-top:20px;background:#1e1e1e;border:1px dashed #00ff88;border-radius:12px;padding:20px;display:none;}
+.result-label{color:#888;font-size:12px;letter-spacing:1px;margin-bottom:8px;}
+.result-code{color:#00ff88;font-size:32px;font-weight:900;letter-spacing:5px;}
+.copy-hint{color:#555;font-size:11px;margin-top:10px;}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">M<span>P</span></div>
+  <div class="title">PROGRAMMER BOARD</div>
+  <div class="subtitle">Mahir Bot Pair System</div>
+
+  <input type="text" id="number" class="input-box" placeholder="8801XXXXXXXXX">
+  <button class="btn" onclick="getCode()">GET PAIR CODE</button>
+
+  <div class="result-box" id="resultBox">
+    <div class="result-label">YOUR PAIR CODE</div>
+    <div class="result-code" id="code">---- ----</div>
+    <div class="copy-hint">WhatsApp > Linked Devices > Link with Pair Code</div>
+  </div>
+</div>
+
+<script>
+async function getCode(){
+  const num=document.getElementById('number').value.trim();
+  const box=document.getElementById('resultBox');
+  const codeEl=document.getElementById('code');
+  if(!num){alert("Number দাও ভাই, যেমন 8801911575104");return;}
+  codeEl.innerText="Loading...";
+  box.style.display="block";
+  try{
+    const res=await fetch(`/pair?number=${num}`);
+    const data=await res.json();
+    if(data.code){
+      codeEl.innerText=data.code;
+    }else{
+      codeEl.innerText="ERROR";
+      alert(data.error);
+    }
+  }catch(e){
+    codeEl.innerText="FAILED";
+  }
+}
+</script>
+</body>
+  </html>
