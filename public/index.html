@@ -3,122 +3,153 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAHIR-MD - Generate Your Pairing Code</title>
+<title>PROGRAMMER MAHIR - Pairing Code</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-body{background:#0a0a12;color:#fff;min-height:100vh;background-image:radial-gradient(circle at 20% 30%, #2a0a4a 0%, transparent 40%), radial-gradient(circle at 80% 70%, #4a0a3a 0%, transparent 40%);overflow-x:hidden}
-.header{border:1px solid #a855f722;background:#11111f88;backdrop-filter:blur(10px);margin:20px;border-radius:16px;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
-.logo{color:#d946ef;font-weight:900;font-size:28px;display:flex;align-items:center;gap:10px}
-.logo span{color:#c084fc}
-.container{max-width:1200px;margin:40px auto;padding:0 20px}
-.title{text-align:center;font-size:56px;font-weight:900;background:linear-gradient(to bottom, #fff, #a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.subtitle{text-align:center;color:#e9a5ff;letter-spacing:4px;margin-top:8px;font-weight:600}
-.badge{display:flex;justify-content:center;margin:20px 0}
-.badge div{background:#1a1a2e;border:1px solid #a855f7;padding:6px 14px;border-radius:20px;font-size:14px}
-.main{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:30px}
-.card{background:#151525cc;border:1px solid #a855f755;border-radius:20px;padding:30px;backdrop-filter:blur(12px);box-shadow:0 0 30px #a855f722}
-.card h2{font-size:28px;margin-bottom:10px}
-.card p{color:#aaa;margin-bottom:20px;line-height:1.5}
-.input-group{margin-bottom:20px}
-.input-group label{display:block;margin-bottom:8px;color:#ddd}
-select,input{width:100%;padding:14px;background:#2a2a40;border:1px solid #a855f7;border-radius:12px;color:#fff;font-size:16px;outline:none}
-.btn{width:100%;padding:16px;background:linear-gradient(90deg, #7c3aed, #ec4899);border:none;border-radius:14px;color:#fff;font-size:18px;font-weight:700;cursor:pointer;box-shadow:0 0 20px #ec489988;transition:0.3s}
-.btn:hover{transform:scale(1.02);box-shadow:0 0 30px #ec4899aa}
-.code-box{border:2px dashed #a855f7;background:#1f1f35;border-radius:16px;padding:40px;text-align:center;min-height:200px;display:flex;flex-direction:column;justify-content:center;align-items:center}
-.code{font-size:42px;font-weight:900;letter-spacing:6px;color:#f0abfc}
-.footer{margin-top:40px;text-align:center;padding:20px;border-top:1px solid #222;color:#888}
-@media(max-width:900px){.main{grid-template-columns:1fr}.title{font-size:36px}}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:#050510;color:#fff;min-height:100vh;overflow-x:hidden;position:relative}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 20% 20%, #1a0a4a 0%, transparent 50%), radial-gradient(ellipse at 80% 80%, #4a0a4a 0%, transparent 50%), linear-gradient(0deg, rgba(168,85,247,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(168,85,247,0.05) 1px, transparent 1px);background-size:100% 100%,100% 100%, 40px 40px, 40px 40px;z-index:-1}
+.header{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;border-bottom:1px solid #a855f733;background:#0a0a1a}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-icon{width:55px;height:55px;border:2px solid #d946ef;border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 15px #d946ef88;font-size:28px}
+.logo-text{font-family:'Orbitron',sans-serif;font-weight:900;line-height:1}
+.logo-text span{color:#a855f7} .logo-text div:first-child{color:#d8b4fe;font-size:28px} .logo-text div:last-child{color:#c084fc;font-size:28px}
+.top-badges{display:flex;gap:12px}
+.badge{border:1px solid #22d3ee;padding:8px 14px;border-radius:24px;font-size:13px;display:flex;align-items:center;gap:8px;background:#0f172a}
+.badge.green{border-color:#22c55e;color:#86efac}
+.main-title{text-align:center;margin:40px 0 30px}
+.main-title h1{font-family:'Orbitron',sans-serif;font-size:48px;background:linear-gradient(90deg,#60a5fa,#e879f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.main-title p{color:#a855f7;font-weight:700;letter-spacing:2px;margin-top:5px;font-size:20px}
+.container{max-width:1250px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.card{background:rgba(10,10,30,0.8);border:1px solid #a855f788;border-radius:16px;padding:25px;box-shadow:0 0 25px #a855f733, inset 0 0 20px #a855f711;backdrop-filter:blur(10px)}
+.card h2{display:flex;align-items:center;gap:10px;font-size:20px;margin-bottom:20px}
+.step{color:#94a3b8;font-size:14px;margin-bottom:12px;display:flex;gap:10px}
+.step b{color:#e879f9}
+.label{font-size:12px;color:#c084fc;background:#1a1033;padding:4px 10px;border-radius:6px;display:inline-block;margin-bottom:8px;margin-top:12px}
+.input-box{width:100%;background:#0f0f23;border:1px solid #d946ef99;border-radius:10px;padding:14px 15px;color:#fff;display:flex;align-items:center;gap:10px;box-shadow:0 0 10px #d946ef33}
+.input-box input, .input-box select{flex:1;background:transparent;border:none;outline:none;color:#fff;font-size:16px}
+.btn{width:100%;margin-top:20px;padding:16px;background:linear-gradient(90deg,#7c3aed,#a855f7,#ec4899);border:none;border-radius:12px;color:#fff;font-weight:800;font-size:17px;cursor:pointer;box-shadow:0 0 20px #a855f7aa;display:flex;justify-content:center;align-items:center;gap:10px}
+.code-display{border:1.5px dashed #e879f9;border-radius:12px;padding:25px;text-align:center;margin:15px 0;background:rgba(168,85,247,0.08)}
+.code-display .code{font-size:36px;font-weight:900;color:#67e8f9;letter-spacing:2px;font-family:'Orbitron',sans-serif}
+.or{display:flex;align-items:center;gap:15px;color:#a855f7;font-weight:700;margin:15px 0;justify-content:center}
+.or::before,.or::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,#a855f7,transparent)}
+.qr-area{text-align:center}
+.qr-box{width:160px;height:160px;margin:10px auto;background:#fff;border-radius:12px;padding:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 20px #d946ef88}
+.footer{text-align:center;padding:30px;color:#64748b;font-size:12px;margin-top:30px}
+@media(max-width:900px){.container{grid-template-columns:1fr}.main-title h1{font-size:28px}.header{flex-direction:column;gap:10px}.top-badges{flex-wrap:wrap;justify-content:center}}
 </style>
 </head>
 <body>
 <div class="header">
-<div class="logo">💎 MAHIR-MD <span style="font-size:12px;background:#a855f7;padding:2px 8px;border-radius:8px;color:#fff">BOT</span></div>
-<div style="display:flex;gap:10px;font-size:13px"><span>● Server 1 Active <span id="liveCount">1/50</span></span></div>
+<div class="logo">
+<div class="logo-icon">🚀</div>
+<div class="logo-text"><div><span>PROGRAMMER</span></div><div>MAHIR</div></div>
+</div>
+<div class="top-badges">
+<div class="badge">👥 <span id="userCount">1,247 Users Connected</span> <span style="width:8px;height:8px;background:#22c55e;border-radius:50%;display:inline-block;box-shadow:0 0 6px #22c55e"></span></div>
+<div class="badge green">🗄️ Server 1 • Active • <span id="serverCount">1/50</span></div>
+</div>
+</div>
+
+<div class="main-title">
+<h1>PROGRAMMER MAHIR</h1>
+<p>GENERATE YOUR PAIRING CODE</p>
 </div>
 
 <div class="container">
-<div class="title">MAHIR-MD</div>
-<div class="subtitle">GENERATE YOUR PAIRING CODE</div>
-<div class="badge"><div>🟢 Server 1 Active <span id="countDisplay">1/50</span></div></div>
-
-<div class="main">
 <div class="card">
-<h2>⚙️ Quick Setup</h2>
-<p>Select a server, enter your WhatsApp number to instantly generate a pairing code. No deployment needed!</p>
+<h2><span style="color:#a855f7">⚙️</span> Quick Setup</h2>
+<div class="step">✔️ <span>1. Select your country from the dropdown below</span></div>
+<div class="step">✔️ <span>Enter your WhatsApp number (country code added automatically)</span></div>
+<div class="step"><b>3.</b> <span>Click "Generate Pair Code & QR Code" and scan the QR on WhatsApp</span></div>
 
-<div class="input-group">
-<label>Select a server</label>
-<select id="server">
-<option>Server 1 • Singapore • Active 1/50</option>
-<option>Server 2 • India • Active 12/50</option>
-<option>Server 3 • Bangladesh • Active 5/50</option>
+<div class="label">Select Your Country</div>
+<div class="input-box">
+<span>🌐</span>
+<select id="country">
+<option value="880">Bangladesh (+880)</option>
+<option value="91">India (+91)</option>
+<option value="92">Pakistan (+92)</option>
+<option value="1">USA (+1)</option>
+<option value="971">UAE (+971)</option>
+<option value="880" selected>🇧🇩 Bangladesh ★ ★ ★ ★</option>
 </select>
 </div>
 
-<div class="input-group">
-<label>WhatsApp Number</label>
-<input type="text" id="number" placeholder="8801xxxxxxxx - Include country code (e.g. 92 for Pakistan, 880 for BD)">
-<small style="color:#facc15">⚠️ Include country code (e.g. 880 for BD, 92 for Pakistan)</small>
+<div class="label">WhatsApp Number</div>
+<div class="input-box">
+<span>📱</span>
+<input type="text" id="number" placeholder="+880 01911" value="+880 ">
 </div>
 
-<button class="btn" onclick="generateCode()">⚡ Generate Pair Code</button>
-<p style="margin-top:12px;font-size:12px;text-align:center">Instant code generated for pairing your WhatsApp account. Valid for 60 seconds.</p>
+<button class="btn" id="genBtn" onclick="generate()">🚀 Generate Pair Code & QR Code</button>
 </div>
 
-<div class="card" style="border-color:#ec4899">
-<h2>🔗 Your pairing code will appear here</h2>
-<div class="code-box" id="codeBox">
-<div id="waiting">
-<div style="font-size:50px">🔗</div>
-<div style="color:#d8b4fe;margin-top:10px;font-weight:700">Waiting for number...</div>
+<div class="card">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div style="font-size:15px;font-weight:600">Your pairing code will appear here</div>
+<button onclick="copyCode()" style="background:#1a1033;border:1px solid #a855f7;color:#fff;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12px">📋 Copy</button>
 </div>
-<div id="result" style="display:none">
-<div class="code" id="pairCode"></div>
-<div style="margin-top:10px;color:#86efac">✅ Code Generated! Copy & Paste in WhatsApp</div>
-<button onclick="copyCode()" style="margin-top:15px;padding:8px 16px;border-radius:8px;border:none;background:#fff;color:#000;cursor:pointer">Copy Code</button>
-<div style="margin-top:10px;font-size:12px;color:#aaa" id="expire">Expires in 60s</div>
+
+<div class="code-display">
+<div style="display:flex;justify-content:center;align-items:center;gap:10px">
+<div class="code" id="pairCode">ABC-123-XYZ</div>
+<div style="cursor:pointer" onclick="copyCode()">📋</div>
 </div>
+<div id="status" style="font-size:12px;color:#aaa;margin-top:5px">Waiting for number...</div>
 </div>
-<p style="text-align:center;font-size:13px">Once you click Generate Pair Code, your 8-digit pairing code will appear here.</p>
+
+<div class="or">OR</div>
+<div class="qr-area">
+<div style="font-size:13px;color:#94a3b8">QR CODE</div>
+<div class="qr-box">
+<div id="qrText">QR WILL APPEAR HERE</div>
+<img id="qrImg" style="display:none;width:140px;height:140px" />
+</div>
+<div style="font-size:12px;color:#94a3b8;margin-top:10px">Scan this QR code on WhatsApp → <span style="color:#67e8f9">Linked Devices</span></div>
+</div>
 </div>
 </div>
 
-<div class="footer">
-© 2026 MAHIR-MD | Powered By Mahir TechX
-</div>
-</div>
+<div class="footer">© 2026 PROGRAMMER MAHIR | Powered By M CLONE ©</div>
 
 <script>
 async function updateCount(){
  try{
-  let res = await fetch('/count');
-  let data = await res.json();
-  document.getElementById('countDisplay').innerText = data.total + ' Users Connected';
-  document.getElementById('liveCount').innerText = data.total;
+  let r = await fetch('/count'); let d = await r.json();
+  document.getElementById('userCount').innerText = d.total.toLocaleString() + ' Users Connected';
+  document.getElementById('serverCount').innerText = (d.total % 50 + 1) + '/50';
  }catch{}
 }
-updateCount();
-setInterval(updateCount, 5000);
+updateCount(); setInterval(updateCount,5000);
 
-async function generateCode(){
- let num = document.getElementById('number').value.trim();
- if(!num){ alert('Number দাও ভাই!'); return; }
- document.getElementById('waiting').innerHTML = '⏳ Generating...';
+async function generate(){
+ let country = document.getElementById('country').value;
+ let numInput = document.getElementById('number').value.replace(/[^0-9]/g,'');
+ if(country && !numInput.startsWith(country)) numInput = country + numInput.replace(new RegExp('^'+country),'');
+ let finalNum = numInput;
+ if(!finalNum || finalNum.length < 10){ alert('Valid Number দাও ভাই!'); return; }
+ let btn = document.getElementById('genBtn'); btn.disabled=true; btn.innerText='⏳ Generating...';
+ document.getElementById('status').innerText='Generating... Please wait';
  try{
-  let res = await fetch('/code?number='+encodeURIComponent(num));
+  let res = await fetch('/code?number='+encodeURIComponent(finalNum));
   let data = await res.json();
-  if(data.error){ alert(data.error); location.reload(); return; }
-  document.getElementById('waiting').style.display='none';
-  document.getElementById('result').style.display='block';
+  if(data.error) throw new Error(data.error);
   document.getElementById('pairCode').innerText = data.code;
+  document.getElementById('status').innerText = '✅ Valid for 60 seconds';
+  document.getElementById('qrText').innerHTML = '<div style="color:#22c55e;font-weight:700">Code Generated!<br>Check WhatsApp<br>Linked Devices</div>';
   updateCount();
- }catch(e){ alert('Server Error, আবার Try করো'); location.reload(); }
+ }catch(e){ alert(e.message); document.getElementById('status').innerText='Failed! Try again';}
+ finally{ btn.disabled=false; btn.innerText='🚀 Generate Pair Code & QR Code'; }
 }
 function copyCode(){
- let code = document.getElementById('pairCode').innerText;
- navigator.clipboard.writeText(code);
- alert('Copied: ' + code);
+ let c = document.getElementById('pairCode').innerText;
+ navigator.clipboard.writeText(c.replace(/-/g,''));
+ alert('Copied: '+c);
 }
+document.getElementById('country').addEventListener('change', (e)=>{
+ document.getElementById('number').value = '+' + e.target.value + ' ';
+});
 </script>
 </body>
-  </html>
+ </html>
