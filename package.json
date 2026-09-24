@@ -1,9 +1,13 @@
 {
-  "name": "mahir-pair",
+  "name": "mahir-bot",
+  "main": "pair.js",
+  "scripts": { "start": "node pair.js" },
   "dependencies": {
-    "express": "^4.18.2",
-    "@whiskeysockets/baileys": "^6.7.8",
-    "qrcode": "^1.5.3"
+    "@whiskeysockets/baileys": "^6.7.16",
+    "express": "^4.19.2",
+    "pino": "^8.19.0",
+    "qrcode": "^1.5.3",
+    "cors": "^2.8.5"
   },
-  "scripts": { "start": "node pair.js" }
+  "engines": { "node": "20.x" }
 }
