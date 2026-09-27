@@ -13,7 +13,7 @@ let lastQR = null;
 let isPaired = false;
 
 function getMyPhoto() {
-    const folders = ['./img', './image', './media'];
+    const folders = ['./img', './image'];
     for (let folder of folders) {
         if (fs.existsSync(folder)) {
             let files = fs.readdirSync(folder).filter(f => f.endsWith('.jpg') || f.endsWith('.jpeg') || f.endsWith('.png') || f.endsWith('.webp'));
@@ -23,36 +23,77 @@ function getMyPhoto() {
     return null;
 }
 
-// ===== WEBSITE - Pair Code & QR আলাদা =====
+// ============ PROGRAMMER MAHIR - CURRENT THEME (PURPLE + ELECTRIC) ============
 app.get('/', (req, res) => {
   res.send(`
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>PROGRAMMER MAHIR</title>
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>PROGRAMMER MAHIR</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:sans-serif}
-body{background:#080514;color:#fff;display:flex;justify-content:center;padding:12px;overflow-x:hidden}
-.card{background:rgba(18,12,38,.98);padding:20px;border-radius:20px;width:100%;max-width:420px;text-align:center;border:1.5px solid #a855f7;box-shadow:0 0 25px #a855f744}
-input{width:100%;padding:13px;margin:10px 0;border-radius:12px;border:1.5px solid #a855f766;background:#15102a;color:#fff;font-size:16px;text-align:center;outline:none}
-button{width:100%;padding:13px;background:linear-gradient(90deg,#7c3aed,#a855f7,#ec4899);border:none;border-radius:12px;font-size:16px;font-weight:bold;cursor:pointer;margin:5px 0;color:#fff}
-#pairBox{margin-top:15px;font-size:30px;letter-spacing:4px;color:#67e8f9;font-weight:900;background:#15102a;padding:15px;border-radius:12px;display:none;border:1.5px dashed #e879f9;font-family:monospace;word-break:break-all}
-#qrBox{margin-top:18px;background:#fff;padding:14px;border-radius:15px;display:none}
-#qrBox img{width:100%;max-width:300px;display:block;margin:0 auto}
-.status{margin-top:12px;color:#86efac;font-size:13px;font-weight:700}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif}
+body{background:#080514;color:#fff;min-height:100vh;display:flex;justify-content:center;padding:10px;overflow-x:hidden}
+.card{background:linear-gradient(180deg, rgba(25,16,52,0.98), rgba(18,12,38,0.98));border:1.5px solid #a855f766;border-radius:24px;padding:20px;width:100%;max-width:420px;text-align:center;box-shadow:0 0 30px #a855f722;height:fit-content}
+.top-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.badge{border:1px solid #ffffff22;background:#15102a;padding:6px 12px;border-radius:99px;font-size:10px;font-weight:700;display:flex;align-items:center;gap:5px}
+.badge.green{border-color:#22c55e55;color:#86efac}
+.badge.purple{border-color:#a855f755;color:#e9d5ff}
+.electric-wrap{width:86px;height:86px;margin:12px auto;border-radius:50%;background:radial-gradient(circle, #2a1a5a 0%, #15102a 70%);border:2px solid #a855f7;box-shadow:0 0 25px #a855f799, inset 0 0 20px #a855f722;display:flex;align-items:center;justify-content:center;cursor:pointer;animation: pulse 2s infinite}
+.electric-wrap:active{transform:scale(0.95)}
+@keyframes pulse{0%,100%{box-shadow:0 0 20px #a855f799}50%{box-shadow:0 0 35px #a855f7cc}}
+.electric{font-size:42px;filter: drop-shadow(0 0 8px #e879f9)}
+.logo{font-weight:900;font-size:24px;letter-spacing:1px;margin:8px 0 2px}
+.logo.p1{color:#fff}.logo.p2{color:#c084fc}
+.sub{font-size:11px;color:#a78bfa;letter-spacing:2px;margin-bottom:14px}
+input{width:100%;padding:14px;margin:10px 0;border-radius:14px;border:1.5px solid #a855f766;background:#0f0b1f;color:#fff;font-size:15px;text-align:center;outline:none}
+button.main{width:100%;padding:14px;background:linear-gradient(90deg,#7c3aed,#a855f7,#ec4899);border:none;border-radius:14px;font-size:14px;font-weight:900;cursor:pointer;margin:6px 0;color:#fff;box-shadow:0 4px 18px #a855f766;letter-spacing:0.5px}
+#pairBox{margin-top:14px;font-size:26px;letter-spacing:4px;color:#67e8f9;font-weight:900;background:#0f0b1f;padding:16px;border-radius:14px;display:none;border:1.5px dashed #e879f9;font-family:monospace;word-break:break-all}
+#qrBox{margin-top:16px;background:#fff;padding:14px;border-radius:18px;display:none;cursor:pointer}
+#qrBox img{width:100%;max-width:320px;display:block;margin:0 auto;border-radius:10px}
+.status{margin-top:12px;color:#86efac;font-size:11px;font-weight:800;background:#0f1a12;padding:8px;border-radius:99px;display:inline-block;border:1px solid #22c55e33}
+.quick{text-align:left;background:#0f0b1f;border:1px solid #ffffff11;border-radius:14px;padding:12px;margin-top:14px}
+.quick b{color:#e879f9;font-size:11px}
+.quick div{font-size:10.5px;color:#9ca3af;line-height:1.7;margin-top:4px}
+.footer{font-size:9px;color:#475569;margin-top:12px;letter-spacing:1px}
 </style></head><body>
 <div class="card">
-<h2>🤖 MAHIR BOT</h2><p style="font-size:11px;color:#c4b5fd;margin:6px 0">Fast Pairing System - Pair Code + Full QR আলাদা</p>
-<input id="number" placeholder="8801XXXXXXXXX (no +)" />
-<button onclick="getCode()">⚡ GET PAIR CODE AND QR CODE</button>
-<div id="pairBox"></div>
-<div id="qrBox"><p style="color:#000;font-weight:bold;margin:0 0 10px">Full QR - Scan to Link:</p><img id="qrImg" src="" /></div>
-<p class="status" id="status">Starting...</p>
-<p style="font-size:11px;color:#9ca3af;text-align:left;margin-top:12px;line-height:1.6">
-<b style="color:#e879f9">নিয়ম:</b><br>
-1. 8801xxx লিখো<br>
-2. Button চাপো - Pair Code উপরে, Full QR নিচে আলাদা আসবে<br>
-3. Pair Code 20 sec এর ভিতরে বসাও<br>
-4. Logging in আটকালে QR Scan করো
-</p>
+<div class="top-badges">
+<div class="badge green">🟢 Server 1 • Active</div>
+<div class="badge purple">⚡ Quick Setup</div>
 </div>
+
+<div class="electric-wrap" onclick="getCode()" title="Click for Current Flow">
+<div class="electric">⚡</div>
+</div>
+
+<div class="logo"><span class="p1">PROGRAMMER</span> <span class="p2">MAHIR</span></div>
+<div class="sub">CURRENT FLOW SYSTEM</div>
+
+<input id="number" placeholder="8801XXXXXXXXX (no +)" />
+<button class="main" onclick="getCode()">⚡ GET PAIR CODE AND QR CODE</button>
+
+<div id="pairBox" onclick="this.style.display='none'"></div>
+<div id="qrBox" onclick="document.getElementById('pairBox').style.display='block'">
+<p style="color:#000;font-weight:900;font-size:12px;margin-bottom:8px">FULL QR CODE - CLICK TO VIEW PAIR</p>
+<img id="qrImg" src="" />
+<p style="color:#6b7280;font-size:10px;margin-top:8px">WhatsApp > Linked Devices > Link a Device<br><span style="color:#a855f7;font-weight:700">QR এ ক্লিক করলে Pair Code দেখবে</span></p>
+</div>
+
+<div id="status" class="status">Starting...</div>
+
+<div class="quick">
+<b>⚡ QUICK SETUP:</b>
+<div>
+1. Number: 8801xxx (+ ছাড়া)<br>
+2. Button / Electric Symbol এ Click করো<br>
+3. Pair Code আলাদা, Full QR আলাদা আসবে<br>
+4. Code 20 sec এর ভিতরে বসাও - Fast 3-5 sec Login<br>
+5. Pair আটকালে Full QR Scan করো
+</div>
+</div>
+
+<div class="footer">2026 @2026 PROGRAMMER MAHIR - POWERED BY MAHIR • CURRENT FLOW</div>
+</div>
+
 <script>
 async function check(){
  try{
@@ -64,10 +105,13 @@ async function check(){
 setInterval(check,2500); check();
 async function getCode(){
  let num=document.getElementById('number').value.replace(/[^0-9]/g,'');
- if(num.length<11)return alert('8801XXXXXXXXX লিখো');
- let box=document.getElementById('pairBox'); box.style.display='block'; box.innerText='Generating FAST...';
- let res=await fetch('/pair?number='+num); let data=await res.json();
- if(data.code) box.innerText=data.code; else box.innerText=data.error||'Error';
+ if(num.length<11)return alert('8801XXXXXXXXX লিখো, + ছাড়া');
+ let box=document.getElementById('pairBox'); box.style.display='block'; box.innerText='Generating FAST Current...';
+ try{
+  let res=await fetch('/pair?number='+num); let data=await res.json();
+  if(data.code){ box.innerText=data.code; box.style.display='block'; }
+  else { box.innerText=data.error||'Error'; }
+ }catch(e){ box.innerText='Server Busy, 5 sec por try'; }
 }
 </script></body></html>
 `);
@@ -75,8 +119,8 @@ async function getCode(){
 
 app.get('/status', async (req, res) => {
   let qrData = null;
-  if(lastQR){ try{ qrData = await QRCode.toDataURL(lastQR, {width:800, margin:1}); }catch(e){} }
-  res.json({ status: isPaired? 'Connected ✅ Online' : (lastQR? 'Scan Full QR or Use Pair Code' : 'Waiting...'), qr: qrData });
+  if(lastQR){ try{ qrData = await QRCode.toDataURL(lastQR, {width:900, margin:1}); }catch(e){} }
+  res.json({ status: isPaired? 'Connected ✅ Online' : (lastQR? 'Scan Full QR or Use Pair Code' : 'Waiting for Current...'), qr: qrData });
 });
 
 app.get('/pair', async (req, res) => {
@@ -90,9 +134,9 @@ app.get('/pair', async (req, res) => {
   }catch(e){ res.json({ error: 'Failed: '+e.message }); }
 });
 
-app.listen(PORT, ()=>console.log('MAHIR FAST LIVE '+PORT));
+app.listen(PORT, ()=>console.log('MAHIR CURRENT LIVE '+PORT));
 
-// ===== BOT LOGIC - FAST REPAIRING SYSTEM =====
+// ============ BOT LOGIC - FAST + PHOTO REPLY ============
 let pendingAdd = {}, pendingAddGid = {}, pendingDownload = {};
 
 async function startBot() {
@@ -109,11 +153,11 @@ async function startBot() {
     sock.ev.on('creds.update', saveCreds);
     sock.ev.on('connection.update', async (u) => {
         const { connection, lastDisconnect, qr } = u;
-        if(qr){ lastQR = qr; console.log('New QR'); }
-        if(connection==='open'){ isPaired=true; lastQR=null; console.log('BOT CONNECTED ✅'); }
+        if(qr){ lastQR = qr; console.log('New Full QR'); }
+        if(connection==='open'){ isPaired=true; lastQR=null; console.log('BOT CONNECTED FAST'); }
         if(connection==='close'){
             isPaired=false;
-            const shouldReconnect = lastDisconnect?.error?.output?.statusCode!== DisconnectReason.loggedOut;
+            const shouldReconnect = lastDisconnect?.error?.output?.statusCode!==DisconnectReason.loggedOut;
             if(shouldReconnect) setTimeout(startBot, 3000);
             else { if(fs.existsSync('./auth')) fs.rmSync('./auth',{recursive:true,force:true}); setTimeout(startBot, 3000); }
         }
@@ -124,7 +168,7 @@ async function startBot() {
     sock.ev.on('messages.upsert', async ({ messages }) => {
         const m = messages[0]; if(!m.message || m.key.fromMe) return;
         const from = m.key.remoteJid; const isGroup = from.endsWith('@g.us');
-        const text = (m.message.conversation || m.message.extendedTextMessage?.text || "").trim();
+        const text = (m.message.conversation || m.message.extendedTextMessage?.text || m.message.imageMessage?.caption || "").trim();
         const sender = m.key.participant || from; const lower = text.toLowerCase();
 
         if(['hi','hello','salam','menu','.menu','bot','mahir'].includes(lower)){
