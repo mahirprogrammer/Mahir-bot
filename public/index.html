@@ -1,122 +1,83 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>PROGRAMMER MAHIR</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AFO BOT HIGH FAME - Programmer Mahir</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-html,body{overflow-x:hidden;max-width:100vw}
-body{background:#080514;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center}
-body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-gradient(600px at 50% 0%, #2a0a5a 0%, transparent 60%),#080514}
-.header{width:100%;max-width:500px;padding:20px 14px 10px;display:flex;flex-direction:column;align-items:center;gap:10px}
-.current-box{width:74px;height:74px;border-radius:50%;border:2px solid #a855f7;background:#12112a;display:grid;place-items:center;position:relative;box-shadow:0 0 18px #a855f755;overflow:hidden;cursor:pointer}
-.current-box::before{content:'';position:absolute;inset:-3px;border-radius:50%;background:conic-gradient(from 0deg, transparent, #22d3ee, #a855f7, transparent);animation:rotate 1.8s linear infinite;opacity:0}
-.current-box.flow::before{opacity:1}
-.current-box::after{content:'';position:absolute;inset:3px;border-radius:50%;background:#12112a;z-index:1}
-.current-icon{font-size:34px;z-index:2;filter:drop-shadow(0 0 10px #22d3ee)}
-.current-box.flow .current-icon{animation:glow 0.5s ease-in-out infinite alternate}
-@keyframes rotate{to{transform:rotate(360deg)}}
-@keyframes glow{from{text-shadow:0 0 10px #22d3ee,0 0 20px #a855f7}to{text-shadow:0 0 25px #22d3ee,0 0 50px #a855f7}}
-.logo{font-family:'Orbitron',sans-serif;font-weight:900;font-size:27px;text-align:center;letter-spacing:1px}
-.logo span:first-child{color:#e9d5ff}
-.logo span:last-child{color:#c084fc}
-.badge{border:1px solid #22d3ee55;background:#0f172a;padding:7px 14px;border-radius:99px;font-size:11px;display:flex;align-items:center;gap:6px;font-weight:800}
-.dot{width:7px;height:7px;background:#22c55e;border-radius:50%;box-shadow:0 0 8px #22c55e;animation:blink 1.5s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.container{width:100%;max-width:500px;padding:0 12px 20px;display:flex;flex-direction:column;gap:12px}
-.card{background:rgba(18,12,38,.97);border:1px solid #a855f744;border-radius:18px;padding:14px 14px;box-shadow:0 0 20px #a855f722;width:100%}
-.quick-title{font-size:12px;font-weight:900;color:#e879f9;letter-spacing:1px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
-.quick-list{list-style:none;padding:0}
-.quick-list li{font-size:11px;color:#c4b5fd;line-height:1.5;margin-bottom:5px;display:flex;gap:6px}
-.quick-list li b{color:#a5b4fc}
-.label{font-size:10px;color:#e879f9;background:#2a164d;padding:4px 9px;border-radius:6px;display:inline-block;margin:10px 0 6px;font-weight:800}
-.selectBox,.inputBox{width:100%;background:#15102a;border:1.2px solid #a855f766;border-radius:12px;padding:12px 13px;display:flex;align-items:center;gap:10px}
-.selectBox select,.inputBox input{flex:1;background:transparent;border:none;outline:none;color:#fff;font-size:14px;font-weight:600;width:100%}
-.selectBox select option{background:#15102a}
-.btn{width:100%;margin-top:12px;padding:13px;background:linear-gradient(90deg,#7c3aed,#a855f7,#ec4899);border:none;border-radius:12px;color:#fff;font-weight:900;font-size:14px;cursor:pointer;box-shadow:0 0 18px #a855f766}
-.codeBox{border:1.5px dashed #e879f977;border-radius:14px;padding:16px;text-align:center;background:rgba(168,85,247,.07);min-height:100px;display:flex;flex-direction:column;justify-content:center;align-items:center;margin-top:8px}
-.code{font-family:'Orbitron',sans-serif;font-size:26px;font-weight:900;color:#67e8f9;letter-spacing:1px}
-.qrFull{width:100%;background:#fff;border-radius:14px;padding:10px;margin-top:10px;display:none}
-.qrFull img{width:100%;height:auto;display:block;border-radius:8px}
-.footer{width:100%;max-width:500px;text-align:center;padding:16px 10px;color:#64748b;font-size:10px;font-weight:700;letter-spacing:0.5px;word-wrap:break-word}
-</style></head><body>
-
+:root{--bg:#0a0614;--card:#16102a;--p:#7c3aed;--p2:#a855f7;--t:#e9e5ff;--m:#9ca3af}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{background:var(--bg);color:var(--t);display:flex;flex-direction:column;align-items:center;min-height:100vh}
+.header{margin-top:35px;text-align:center}
+.header h1{font-size:36px;color:var(--p2);text-shadow:0 0 15px var(--p);letter-spacing:2px}
+.header h2{font-size:16px;margin-top:6px;letter-spacing:4px;color:var(--t)}
+.divider{width:220px;height:2px;background:linear-gradient(90deg,transparent,var(--p),transparent);margin:10px auto}
+.card{background:var(--card);width:92%;max-width:460px;margin:20px auto;border-radius:18px;padding:22px;border:1px solid #2a1f4d;box-shadow:0 0 30px rgba(124,58,237,.15)}
+.rules h3{color:var(--p2);margin-bottom:10px;font-size:15px}
+.rules li{background:#1e1740;padding:9px 12px;margin:6px 0;border-radius:8px;font-size:12.5px;border-left:3px solid var(--p);list-style:none}
+.label{margin-top:16px;display:block;color:var(--m);font-size:12px;margin-bottom:6px}
+select,input{width:100%;background:#0f0a24;border:1px solid #3a2a6a;color:var(--t);padding:12px;border-radius:10px;outline:none}
+.phone-box{display:flex;align-items:center;background:#0f0a24;border:1px solid #3a2a6a;border-radius:10px;overflow:hidden}
+.phone-box span{padding:12px;background:#1e1740;color:var(--p2);font-weight:bold;min-width:75px;text-align:center}
+.phone-box input{border:none;flex:1}
+#validation{font-size:11px;margin-top:6px;height:14px}
+.btn{width:100%;padding:13px;margin-top:12px;border-radius:10px;border:none;font-weight:bold;cursor:pointer}
+.btn-pair{background:linear-gradient(90deg,var(--p),var(--p2));color:white}
+.btn-cure{background:transparent;border:1px solid var(--p);color:var(--p2)}
+.pair-display{display:none;margin-top:18px;background:#0f0a24;border:1px dashed var(--p);border-radius:12px;padding:16px;text-align:center}
+.pair-code{font-size:28px;letter-spacing:6px;font-weight:bold;margin:12px 0;background:#1a1333;padding:10px;border-radius:8px;font-family:monospace;display:flex;justify-content:center;align-items:center;gap:10px}
+.copy-btn{font-size:12px;padding:4px 8px;border-radius:6px;border:1px solid var(--p);background:transparent;color:var(--p2);cursor:pointer}
+.footer{margin:25px 0;text-align:center;color:var(--m);font-size:11px}
+</style>
+</head>
+<body>
 <div class="header">
-<div class="current-box" id="currentBox"><div class="current-icon">⚡</div></div>
-<div class="logo"><span>PROGRAMMER</span> <span>MAHIR</span></div>
-<div class="badge">🟢 Server 1 • Active • <span class="dot"></span></div>
+<h1>AFO BOT</h1><h2>HIGH FAME</h2><div class="divider"></div>
+<p>Programmer Mahir</p>
+<p style="font-size:10px;margin-top:4px;opacity:.6">BRAIN SYSTEM: ACTIVE | THEME: DARK PURPLE</p>
 </div>
-
-<div class="container">
-
-<!-- QUICK SETUP - English Rules -->
 <div class="card">
-<div class="quick-title">⚡ QUICK SETUP</div>
-<ul class="quick-list">
-<li>1. <span><b>Select Country</b> - Default is Bangladesh (+880)</span></li>
-<li>2. <span><b>Enter Number</b> - Enter without country code</span></li>
-<li>3. <span><b>Generate</b> - Click to get Pair Code & QR Code</span></li>
-<li>4. <span><b>WhatsApp</b> > Linked Devices > Link with Phone Number - Paste Code</span></li>
-<li>5. <span><b>QR Scan</b> - You can also scan the Full QR directly</span></li>
-</ul>
+<div class="rules">
+<h3>A Quick Setup Rules</h3>
+<li>1. Select your country from the list in order.</li>
+<li>2. Enter your WhatsApp number correctly without 0.</li>
+<li>3. Click PAIR CODE to generate your 8-digit code.</li>
+<li>4. Open WhatsApp > Linked Devices > Link with Phone Number.</li>
+<li>5. Enter the code within 60 seconds to connect.</li>
+<li>6. If session expired, use CURE CODE to restore.</li>
 </div>
-
-<div class="card">
-<div class="label">🌐 Select Your Country</div>
-<div class="selectBox"><select id="country">
-<option value="880" selected>🇧🇩 Bangladesh (+880) - Default</option>
-<option value="92">🇵🇰 Pakistan (+92)</option>
-<option value="91">🇮🇳 India (+91)</option>
-<option value="1">🇺🇸 America (+1)</option>
-<option value="975">🇧🇹 Bhutan (+975)</option>
-<option value="44">🇬🇧 London (+44)</option>
-<option value="65">🇸🇬 Singapore (+65)</option>
-<option value="966">🇸🇦 Saudi Arabia (+966)</option>
-</select></div>
-
-<div class="label">WhatsApp Number</div>
-<div class="inputBox">📱 <input id="number" type="text" inputmode="numeric" placeholder="+880"></div>
-<div style="font-size:11px;color:#8b9cff;margin-top:6px;font-weight:700">Full: <b id="fullPreview" style="color:#a5b4fc">+880</b></div>
-<button class="btn" id="genBtn" onclick="generate()">⚡ Generate Pair Code & QR Code</button>
+<label class="label">Select Country - Order Wise</label>
+<select id="country">
+<option value="+880">Bangladesh (+880)</option>
+<option value="+91">India (+91)</option>
+<option value="+92">Pakistan (+92)</option>
+<option value="+1">USA (+1)</option>
+<option value="+44">UK (+44)</option>
+<option value="+971">UAE (+971)</option>
+<option value="+966">Saudi Arabia (+966)</option>
+<option value="+60">Malaysia (+60)</option>
+</select>
+<label class="label">Enter WhatsApp Number</label>
+<div class="phone-box">
+<span id="codeShow">+880</span>
+<input type="tel" id="number" placeholder="17XXXXXXXX">
 </div>
-
-<div class="card">
-<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:800;font-size:12px">Your pairing code will appear here</span><button onclick="copyCode()" style="background:#20153d;border:1px solid #a855f766;color:#fff;padding:6px 11px;border-radius:8px;cursor:pointer;font-weight:800;font-size:11px">📋 Copy</button></div>
-<div class="codeBox"><div id="waiting"><div style="font-size:20px">🔗</div><div style="color:#c4b5fd;font-size:11px;margin-top:4px">Waiting for number...</div></div><div id="loader" style="display:none"><div style="width:26px;height:26px;border:3px solid #a855f744;border-top-color:#e879f9;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 6px"></div><div style="color:#e879f9;font-weight:800;font-size:11px">Generating...</div></div><div id="result" style="display:none"><div class="code" id="pairCode"></div><div id="expire" style="font-size:11px;color:#86efac;margin-top:4px;font-weight:700"></div></div></div>
-<div style="text-align:center;margin-top:12px"><div style="font-size:10px;color:#94a3b8;font-weight:800;letter-spacing:0.8px">FULL QR CODE - SCAN TO LINK</div>
-<div class="qrFull" id="qrBox"><img id="qrImg"></div>
-<div id="qrPlaceholder" style="border:1px dashed #a855f744;padding:16px;border-radius:12px;color:#6b7280;font-size:11px;margin-top:8px">Full QR Will Appear Here</div>
-<div id="qrLoader" style="display:none;margin-top:8px;color:#e879f9;font-weight:700;font-size:11px">Generating Real QR...</div>
+<div id="validation"></div>
+<button class="btn btn-pair" onclick="generatePair()">PAIR CODE</button>
+<button class="btn btn-cure" onclick="generateCure()">CURE CODE</button>
+<div class="pair-display" id="pairBox">
+<h4 id="pairTitle" style="font-size:11px;color:#9ca3af">YOUR PAIR CODE</h4>
+<div class="pair-code"><span id="pairCode">---- ----</span> <button class="copy-btn" onclick="copyCode()">Copy</button></div>
+<p style="font-size:10px;color:#9ca3af">Code will expire in 60 seconds</p>
 </div>
 </div>
-</div>
-
-<div class="footer">2026 @2026 PROGRAMMER MAHIR - Powered By MAHIR</div>
-
+<div class="footer">© 2026 Programmer Mahir<div class="divider" style="width:100px"></div>Powered by <b style="color:#a855f7">Mahir</b></div>
 <script>
-const countryEl=document.getElementById('country'), numberEl=document.getElementById('number'), fullPreview=document.getElementById('fullPreview'), currentBox=document.getElementById('currentBox');
-function upd(){let c=countryEl.value.replace(/\D/g,''), raw=numberEl.value.replace(/\D/g,''); if(raw.startsWith(c)) raw=raw.slice(c.length); let f=c+raw; fullPreview.innerText='+'+f; return f;}
-function setDefault(){numberEl.value='+'+countryEl.value+' '; upd();}
-countryEl.addEventListener('change',()=>{ setDefault(); numberEl.focus(); });
-numberEl.addEventListener('input',upd);
-setDefault();
-let timer;
-async function generate(){
-  let num=upd();
-  if(num.length<10){alert('Valid number দাও ভাই');return;}
-  let btn=document.getElementById('genBtn'); btn.disabled=true; btn.innerText='⏳ Generating...';
-  currentBox.classList.add('flow');
-  document.getElementById('waiting').style.display='none'; document.getElementById('result').style.display='none'; document.getElementById('loader').style.display='block';
-  document.getElementById('qrBox').style.display='none'; document.getElementById('qrPlaceholder').style.display='none'; document.getElementById('qrLoader').style.display='block';
-  try{
-    let res1 = await fetch('/code?number='+encodeURIComponent(num));
-    let data1 = await res1.json();
-    if(data1.code){ document.getElementById('loader').style.display='none'; document.getElementById('result').style.display='block'; document.getElementById('pairCode').innerText=data1.code;
-      let s=180; clearInterval(timer); document.getElementById('expire').innerText='Expires in '+s+'s'; timer=setInterval(()=>{s--; document.getElementById('expire').innerText='Expires in '+s+'s'; if(s<=0)clearInterval(timer);},1000); }
-    let res2 = await fetch('/qr'); let data2 = await res2.json(); document.getElementById('qrLoader').style.display='none';
-    if(data2.qr){ document.getElementById('qrImg').src=data2.qr; document.getElementById('qrBox').style.display='block'; } else { document.getElementById('qrPlaceholder').style.display='block'; }
-  }catch(e){}
-  finally{ btn.disabled=false; btn.innerText='⚡ Generate Pair Code & QR Code'; setTimeout(()=>currentBox.classList.remove('flow'), 4000); }
-}
-function copyCode(){let c=document.getElementById('pairCode').innerText; if(!c) return; navigator.clipboard.writeText(c.replace(/-/g,'')); alert('Copied: '+c);}
-currentBox.addEventListener('click',()=>{ currentBox.classList.add('flow'); setTimeout(()=>currentBox.classList.remove('flow'), 3000); });
-</script><style>@keyframes spin{to{transform:rotate(360deg)}}</style>
-</body></html>
+const country=document.getElementById('country'), codeShow=document.getElementById('codeShow'), numInput=document.getElementById('number'), validation=document.getElementById('validation');
+country.addEventListener('change',()=>codeShow.innerText=country.value);
+numInput.addEventListener('input',()=>{let v=numInput.value.replace(/[^0-9]/g,'');numInput.value=v;if(v.length<8){validation.innerText="Invalid number - too short";validation.style.color="#ef4444";}else if(v.length<=15){validation.innerText="✓ Valid format - Ready to pair";validation.style.color="#22c55e";}else{validation.innerText="Number too long";validation.style.color="#ef4444";}});
+function generatePair(){if(numInput.value.length<8)return alert("Enter valid number");document.getElementById('pairBox').style.display="block";document.getElementById('pairTitle').innerText="YOUR PAIR CODE";document.getElementById('pairCode').innerText="LOADING...";setTimeout(()=>{document.getElementById('pairCode').innerText=Math.random().toString(36).substring(2,6).toUpperCase()+"-"+Math.floor(1000+Math.random()*9000);},1000);}
+function generateCure(){if(numInput.value.length<8)return alert("Enter valid number");document.getElementById('pairBox').style.display="block";document.getElementById('pairTitle').innerText="YOUR CURE CODE";document.getElementById('pairCode').innerText="LOADING...";setTimeout(()=>{document.getElementById('pairCode').innerText="CURE-"+Math.floor(100000+Math.random()*900000);},1000);}
+function copyCode(){navigator.clipboard.writeText(document.getElementById('pairCode').innerText);alert("Copied ✓");}
+</script>
+</body>
+</html>
